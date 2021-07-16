@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Search</title>
+  </head>
+  <style>
+    section {
+      display:grid; gap:20px;
+      grid-template-columns :repeat(4, 1fr);
+      padding:15px 0;
+    }
+
+  </style>
+  <body>
+    <h1>Search Results</h1>
+    <h3>Found {{resultNumber}} results for : {{searchingBy}}</h3>
+    <section>
+      <h4>Title</h4> 
+      <h4>Company</h4>
+      <h4>Location</h4>
+      <h4>Link</h4> 
+    </section>
+      {% for job in jobs %}
+      <section>
+        <div><span>{{ job.title }}</span></div>
+        <div><span>{{ job.company }}</span></div>
+        <div><span>{{ job.location }}</span></div>
+        <div><a href="{{ job.apply_link }}" target="_blank">APPLY</a></div>
+      </section>
+      {% endfor %}
+  </body>
+</html> 
